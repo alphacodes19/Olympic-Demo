@@ -1,0 +1,96 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix olympics: <http://olympic-data.org/ontology#> .
+
+################
+# Classes
+################
+
+olympics:Athlete       a owl:Class .
+olympics:Country       a owl:Class .
+olympics:Sport         a owl:Class .
+olympics:Event         a owl:Class .
+olympics:OlympicGame   a owl:Class .
+olympics:MedalResult   a owl:Class .
+
+################
+# Object properties
+################
+
+olympics:representsCountry a owl:ObjectProperty ;
+    rdfs:domain olympics:Athlete ;
+    rdfs:range  olympics:Country .
+
+olympics:participatedIn a owl:ObjectProperty ;
+    rdfs:domain olympics:Athlete ;
+    rdfs:range  olympics:Event .
+
+olympics:competedInGame a owl:ObjectProperty ;
+    rdfs:domain olympics:Athlete ;
+    rdfs:range  olympics:OlympicGame .
+
+olympics:wonMedal a owl:ObjectProperty ;
+    rdfs:domain olympics:Athlete ;
+    rdfs:range  olympics:MedalResult .
+
+olympics:forEvent a owl:ObjectProperty ;
+    rdfs:domain olympics:MedalResult ;
+    rdfs:range  olympics:Event .
+
+olympics:atGame a owl:ObjectProperty ;
+    rdfs:domain olympics:MedalResult ;
+    rdfs:range  olympics:OlympicGame .
+
+olympics:belongsToSport a owl:ObjectProperty ;
+    rdfs:domain olympics:Event ;
+    rdfs:range  olympics:Sport .
+
+################
+# Datatype properties
+################
+
+olympics:athleteId a owl:DatatypeProperty ;
+    rdfs:domain olympics:Athlete ;
+    rdfs:range xsd:string .
+
+olympics:athleteName a owl:DatatypeProperty ;
+    rdfs:domain olympics:Athlete ;
+    rdfs:range xsd:string .
+
+olympics:gender a owl:DatatypeProperty ;
+    rdfs:domain olympics:Athlete ;
+    rdfs:range xsd:string .
+
+olympics:isoCode a owl:DatatypeProperty ;
+    rdfs:domain olympics:Country ;
+    rdfs:range xsd:string .
+
+olympics:countryName a owl:DatatypeProperty ;
+    rdfs:domain olympics:Country ;
+    rdfs:range xsd:string .
+
+olympics:sportName a owl:DatatypeProperty ;
+    rdfs:domain olympics:Sport ;
+    rdfs:range xsd:string .
+
+olympics:eventName a owl:DatatypeProperty ;
+    rdfs:domain olympics:Event ;
+    rdfs:range xsd:string .
+
+olympics:year a owl:DatatypeProperty ;
+    rdfs:domain olympics:OlympicGame ;
+    rdfs:range xsd:gYear .
+
+olympics:season a owl:DatatypeProperty ;
+    rdfs:domain olympics:OlympicGame ;
+    rdfs:range xsd:string .
+
+olympics:hostCity a owl:DatatypeProperty ;
+    rdfs:domain olympics:OlympicGame ;
+    rdfs:range xsd:string .
+
+olympics:medalType a owl:DatatypeProperty ;
+    rdfs:domain olympics:MedalResult ;
+    rdfs:range xsd:string .

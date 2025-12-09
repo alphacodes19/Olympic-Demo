@@ -1,0 +1,59 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix olympics: <http://olympic-data.org/ontology#> .
+@prefix resource: <http://olympic-data.org/resource/> .
+
+##############
+# Country: United States
+##############
+
+resource:country_USA a olympics:Country ;
+    olympics:isoCode "USA" ;
+    olympics:countryName "United States of America" .
+
+##############
+# Sport: Swimming
+##############
+
+resource:sport_Swimming a olympics:Sport ;
+    olympics:sportName "Swimming" .
+
+##############
+# Olympic Game: 2008 Summer (Beijing)
+##############
+
+resource:game_2008_Summer a olympics:OlympicGame ;
+    olympics:year "2008"^^xsd:gYear ;
+    olympics:season "Summer" ;
+    olympics:hostCity "Beijing" .
+
+##############
+# Event: Swimming Men's 100 metres Butterfly
+##############
+
+resource:event_M100_Butterfly_2008 a olympics:Event ;
+    olympics:eventName "Swimming Men's 100 metres Butterfly" ;
+    olympics:belongsToSport resource:sport_Swimming .
+
+##############
+# Athlete: Michael Phelps
+##############
+
+resource:athlete_A000001 a olympics:Athlete ;
+    olympics:athleteId "A000001" ;
+    olympics:athleteName "Michael Phelps" ;
+    olympics:gender "M" ;
+    olympics:representsCountry resource:country_USA ;
+    olympics:participatedIn resource:event_M100_Butterfly_2008 ;
+    olympics:competedInGame resource:game_2008_Summer ;
+    olympics:wonMedal resource:medal_result_MR_A000001 .
+
+##############
+# MedalResult: Gold medal in that event
+##############
+
+resource:medal_result_MR_A000001 a olympics:MedalResult ;
+    olympics:medalType "Gold" ;
+    olympics:forEvent resource:event_M100_Butterfly_2008 ;
+    olympics:atGame resource:game_2008_Summer .
