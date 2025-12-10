@@ -1,7 +1,7 @@
 import streamlit as st
 from rdflib import Graph
 
-# Our competency question (real-data based)
+# Our competency question
 CQ_TEXT = (
     "Who won the Gold medal in the Men's 100 metres Butterfly event at the "
     "2008 Beijing Summer Olympics, and which country did he represent?"
@@ -63,12 +63,12 @@ def run_query():
 def main():
     st.title("Olympic Demo")
 
-    # Show the competency question on screen
+    # Show the competency question
     st.write("Competency question:")
     st.write(f"**{CQ_TEXT}**")
     st.write("Copy the same competency question to ask your question section....")
 
-    # Empty input (professor khud likhega)
+    # Empty input
     user_q = st.text_input("Ask your question:")
 
     if st.button("Get answer"):
