@@ -5,7 +5,7 @@ My current competency question is:
 -> I modeled this exactly in my RDF data: Michael Phelps, representing USA, in the Swimming Men's 100m Butterfly event at the 2008 Beijing Summer Games.
 
 -> The ontology (olympic-ontology.ttl) defines the schema:  Athlete, Country, Sport, Event, OlympicGame, MedalResult
-   properties like:  representsCountry, wonMedal, forEvent, atGame, sportName, eventName, year, season, hostCity, medalType.
+-> Properties like:  representsCountry, wonMedal, forEvent, atGame, sportName, eventName, year, season, hostCity, medalType.
 
 -> The RDF file (olympic-data.ttl) contains a real example instance following this schema.
 
